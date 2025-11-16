@@ -1,0 +1,7 @@
+{
+    "periodic_table": [
+        {"name": "Hydrogen", "atomic_number": 1, "mass_number": 1.008},
+        {"name": "Helium", "atomic_number": 2, "mass_number": 4.003},
+        {"name": "Lithium", "atomic_number": 3, "mass_number": 6.940}
+    ]
+}
