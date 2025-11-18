@@ -5,10 +5,18 @@
 
 # (0) Imports
 
-import json
+import csv
+import pandas as pd
 import os
 
-periodic_table_file = "periodic_table.json"
+# (0.1) Test Data
+
+periodic_table = {} # our database of periodic table info
+
+periodic_table["Hydrogen"] = {"name": "Hydrogen", "atomic_number": 1,"mass_number": 1.008}
+periodic_table["Helium"] = {"name": "Helium", "atomic_number": 2,"mass_number": 4.003}
+periodic_table["Lithium"] = {"name": "Lithium", "atomic_number": 3,"mass_number": 6.940}
+periodic_table["Beryllium"] = {"name": "Beryllium", "atomic_number": 4, "mass_number": 9.012}
 
 # (1) Functions
 
@@ -27,29 +35,17 @@ def searchElement(): # Main Menu Option 1 - Element Search
 
         element_name = input("Enter The Name Of The Element: ")
 
-        with open (periodic_table_file, 'r') as f:
-            periodic_table = json.load(f)
-
-            for periodic_table["name"] in periodic_table:
-                if element_name == periodic_table["name"]:
-                    print("Name: ", periodic_table["name"])
-                    print("Atomic Number: ", periodic_table["atomic_number"])
-                    print("Mass Number: ", periodic_table["mass_number"])
-
+        for item in periodic_table: # loops through periodic_table dictionary
+            if periodic_table[element_name] == periodic_table[item]: # finds specific item with name being searched for
+                print("\n")
+                print("Element Name: ", periodic_table[element_name]["name"])
+                print("Atomic Number: ", periodic_table[element_name]["atomic_number"])
+                print("Mass Number: ", periodic_table[element_name]["mass_number"])
                     
-
     if searchChoice == 2: # search element by atomic number
 
         element_atomic_number = int(input("Enter The Atomic Number Of The Element: "))
-
-        with open (periodic_table_file, 'r') as f:
-            periodic_table = json.load(f)
-
-            for atomic_number in periodic_table:
-                if element_atomic_number == periodic_table["atomic_number"]:
-                    print("Name: ", periodic_table["name"])
-                    print("Atomic Number: ", periodic_table["atomic_number"])
-                    print("Mass Number: ", periodic_table["mass_number"])
+             
 
 def readme(): # Main Menu Option 3 - Readme
 
